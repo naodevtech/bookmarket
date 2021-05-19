@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import Layout from "./components/layout/layout";
+import Home from "./components/pages/home";
+import Login from "./components/pages/login";
+import Nav from "./components/molecules/navigation";
+import ProtectedRoute from "./utils/protectedRoute";
+import "./App.scss";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ type: "APP_INIT" });
+    setTimeout(() => {
+      dispatch({ type: "APP_READY" });
+    }, 3000);
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Layout>
+            <ProtectedRoute path="/" user={true} exact component={Home} />
+            <Route exact path="/login" component={Login} />
+          </Layout>
+        </Switch>
+      </Router>
     </div>
   );
 }
