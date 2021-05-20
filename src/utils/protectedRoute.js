@@ -9,8 +9,8 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
   let history = useHistory();
 
   useEffect(() => {
-    if (Cookies.get("auth-cookie")) {
-      return history.push("/");
+    if (Cookies.get()) {
+      dispatch({ type: "USER_LOGGED" });
     }
   }, [dispatch, history]);
   return (
@@ -18,7 +18,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) => {
         console.log(appState);
-        if (appState.app.isLogged) {
+        if (appState.auth.user.isLogged) {
           return <Component {...rest} {...props} />;
         } else {
           return (

@@ -4,7 +4,7 @@ import rootReducer from "./root";
 
 const loggerMiddleware = createLogger();
 
-export const createStorage = (preloadedState) => {
+export const ConfigureStore = (preloadedState) => {
   return createStore(
     rootReducer,
     preloadedState,
