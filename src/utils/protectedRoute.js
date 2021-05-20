@@ -12,7 +12,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     if (Cookies.get("auth-cookie")) {
       return history.push("/");
     }
-  }, [dispatch]);
+  }, [dispatch, history]);
   return (
     <Route
       {...rest}

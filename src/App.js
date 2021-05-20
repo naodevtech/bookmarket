@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import Layout from "./components/layout/layout";
 import Home from "./components/pages/home";
@@ -9,7 +9,6 @@ import ProtectedRoute from "./utils/protectedRoute";
 import "./App.scss";
 
 function App() {
-  const appState = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +22,7 @@ function App() {
         <Switch>
           <Layout>
             <ProtectedRoute path="/" exact component={Home} />
-            <Route exact path="/login" component={Login} />
+            <Route path="/login" exact component={Login} />
           </Layout>
         </Switch>
       </Router>

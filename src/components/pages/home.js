@@ -1,21 +1,20 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import Cookies from "js-cookie";
+import api from "../../utils/api";
 
 function Home() {
   const appState = useSelector((state) => state);
+  const dispatch = useDispatch();
   let history = useHistory();
 
-  useEffect(() => {
-    console.log("home");
-  }, []);
-
-  const handleLogout = () => {
-    Cookies.remove("auth-cookie", {
-      path: "/",
-      domain: "http://localhost:3001/",
-    });
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    let result = await api.post("/logout");
+    if (result.status === 200) {
+      dispatch({ type: "USER_LOGOUT" });
+      return history.push("/login");
+    }
   };
 
   return (
