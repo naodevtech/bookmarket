@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import Layout from "./components/layout/layout";
 import Home from "./components/pages/home";
 import Login from "./components/pages/login";
-import Nav from "./components/molecules/navigation";
 import ProtectedRoute from "./utils/protectedRoute";
 import "./App.scss";
 
@@ -14,9 +13,7 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: "APP_INIT" });
-    setTimeout(() => {
-      dispatch({ type: "APP_READY" });
-    }, 3000);
+    dispatch({ type: "APP_READY" });
   }, [dispatch]);
 
   return (
@@ -24,8 +21,8 @@ function App() {
       <Router>
         <Switch>
           <Layout>
-            <ProtectedRoute path="/" user={true} exact component={Home} />
-            <Route exact path="/login" component={Login} />
+            <ProtectedRoute path="/" exact component={Home} />
+            <Route path="/login" exact component={Login} />
           </Layout>
         </Switch>
       </Router>

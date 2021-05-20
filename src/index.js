@@ -4,8 +4,8 @@ import { Provider } from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App";
 import "./index.scss";
-import { createStorage } from "./store/store";
-const store = createStorage();
+import { ConfigureStore } from "./store/store";
+const store = ConfigureStore();
 
 ReactDOM.render(
   <Provider store={store}>

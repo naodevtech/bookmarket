@@ -1,15 +1,26 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import api from "../../utils/api";
 
 function Home() {
   const appState = useSelector((state) => state);
-  useEffect(() => {
-    console.log("home");
-  }, []);
+  const dispatch = useDispatch();
+  let history = useHistory();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    let result = await api.post("/logout");
+    if (result.status === 200) {
+      dispatch({ type: "USER_LOGOUT" });
+      return history.push("/login");
+    }
+  };
 
   return (
     <div className="Homepage">
-      <h1>{appState.init ? "Welcome" : "loading..."}</h1>
+      <h1>{!appState.loading ? "Welcome" : "loading..."}</h1>
+      <button onClick={handleLogout}>Deconnexion</button>
     </div>
   );
 }
