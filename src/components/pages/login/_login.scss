@@ -66,6 +66,9 @@
       @include media(tablet) {
         width: 60%;
       }
+      @include media(laptop) {
+        height: 65px;
+      }
     }
     button {
       border: none;
@@ -80,6 +83,9 @@
       cursor: pointer;
       @include media(tablet) {
         width: 60%;
+      }
+      @include media(laptop) {
+        height: 60px;
       }
     }
     .btn_login {
