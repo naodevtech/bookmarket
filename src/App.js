@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import Layout from "./components/layout/layout";
 import Home from "./components/pages/home";
 import Login from "./components/pages/login";
+import Register from "./components/pages/register";
 import ProtectedRoute from "./utils/protectedRoute";
 import "./App.scss";
 
@@ -23,6 +24,7 @@ function App() {
           <Layout>
             <ProtectedRoute path="/" exact component={Home} />
             <Route path="/login" exact component={Login} />
+            <Route path="/register" exact component={Register} />
           </Layout>
         </Switch>
       </Router>
