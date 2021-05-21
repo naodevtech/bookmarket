@@ -10,10 +10,10 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case "USER_FETCH":
-      return { ...state, loading: true };
-    case "USER_LOGIN_SUCCESS":
-      return { ...state, isFetching: false };
-    case "USER_LOGIN_WRONG":
+      return { ...state, isFetching: true };
+    case "USER_FETCH_SUCCESS":
+      return { ...state, isFetching: false, isLogged: true };
+    case "USER_FETCH_WRONG":
       return { ...state, isFetching: false, isSuccess: false, isLogged: false };
     case "USER_SET":
       return {
