@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import api from "../../utils/api";
+import api from "../../../utils/api";
+import "./_login.scss";
+import Logo from "../../../assets/logos/logo_bookstore.png";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -29,8 +31,11 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Login page</h1>,{handleError ? <h3>{handleError}</h3> : null}
+    <div className="container_form">
+      <div>
+        <img src={Logo} alt="logo" />
+        <h2>Changez votre vision de la lecture avec notre solution digitale</h2>
+      </div>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -44,7 +49,12 @@ const Login = () => {
           name="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Connexion</button>
+        <button className="btn btn_login" type="submit">
+          Connexion
+        </button>
+        <button className="btn btn_register" type="submit">
+          Inscription
+        </button>
       </form>
     </div>
   );

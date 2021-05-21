@@ -1,5 +1,5 @@
-import Nav from "../molecules/navigation";
-import Footer from "../molecules/footer";
+import Nav from "../molecules/navigation/navigation";
+import Footer from "../molecules/footer/footer";
 
 const Layout = ({ children }) => {
   return (

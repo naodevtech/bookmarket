@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 
 import Layout from "./components/layout/layout";
 import Home from "./components/pages/home";
-import Login from "./components/pages/login";
-import Register from "./components/pages/register";
+import Login from "./components/pages/login/login";
+import Register from "./components/pages/register/register";
 import ProtectedRoute from "./utils/protectedRoute";
 import "./App.scss";
 
