@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+
 import api from "../../../utils/api";
 import "./_login.scss";
 import Logo from "../../../assets/logos/logo_bookstore.png";
@@ -52,7 +53,10 @@ const Login = () => {
         <button className="btn btn_login" type="submit">
           Connexion
         </button>
-        <button className="btn btn_register" type="submit">
+        <button
+          className="btn btn_register"
+          onClick={() => history.push("/register")}
+        >
           Inscription
         </button>
       </form>

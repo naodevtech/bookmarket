@@ -59,7 +59,11 @@ const Register = () => {
         <button className="btn btn_register" type="submit">
           Inscription
         </button>
-        <button className="btn btn_login" type="submit">
+        <button
+          className="btn btn_login"
+          type="submit"
+          onClick={() => history.push("/login")}
+        >
           Connexion
         </button>
       </form>
