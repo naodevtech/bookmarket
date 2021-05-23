@@ -11,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
-  const [handleError, setHandleError] = useState("");
+  // const [handleError, setHandleError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const Login = () => {
       history.push("/");
     } catch (err) {
       dispatch({ type: "USER_FETCH_WRONG" });
-      setHandleError(err.response?.data?.message);
+      // setHandleError(err.response?.data?.message);
       dispatch({ type: "USER_RESET" });
     }
   };
@@ -37,7 +37,7 @@ const Login = () => {
         <img src={Logo} alt="logo" />
         <h2>Changez votre vision de la lecture avec notre solution digitale</h2>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off">
         <input
           type="email"
           placeholder="email"

@@ -32,8 +32,8 @@ const userReducer = (state = initialState, action) => {
   }
 };
 
-const authReducuer = combineReducers({
+const authReducer = combineReducers({
   user: userReducer,
 });
 
-export default authReducuer;
+export default authReducer;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import api from "../../utils/api";
@@ -7,6 +7,15 @@ function Home() {
   const appState = useSelector((state) => state);
   const dispatch = useDispatch();
   let history = useHistory();
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        await api.get("/books");
+      } catch (err) {}
+    }
+    fetchData();
+  }, []);
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -19,7 +28,11 @@ function Home() {
 
   return (
     <div className="Homepage">
-      <h1>{!appState.loading ? "Welcome" : "loading..."}</h1>
+      <h1>
+        {!appState.loading
+          ? `Welcome ${appState.auth.user.values.name}`
+          : "loading..."}
+      </h1>
       <button onClick={handleLogout}>Deconnexion</button>
     </div>
   );

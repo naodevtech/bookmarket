@@ -11,7 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const history = useHistory();
-  const [handleError, setHandleError] = useState("");
+  // const [handleError, setHandleError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const Register = () => {
       dispatch({ type: "USER_SET", payload: result.data.data });
       history.push("/");
     } catch (err) {
-      setHandleError(err.response?.data?.message);
+      // setHandleError(err.response?.data?.message);
       dispatch({ type: "USER_RESET" });
     }
   };
