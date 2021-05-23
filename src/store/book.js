@@ -8,18 +8,18 @@ const initialState = {
 
 const bookReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "BOOKS_FETCH":
+    case "BOOK_FETCH":
       return { ...state, isFetching: true };
-    case "BOOKS_FETCH_SUCCESS":
+    case "BOOK_FETCH_SUCCESS":
+      return { ...state, isFetching: false, isSuccess: true };
+    case "BOOK_FETCH_WRONG":
       return { ...state, isFetching: false, isSuccess: false };
-    case "BOOKS_FETCH_WRONG":
-      return { ...state, isFetching: false, isSuccess: false };
-    case "BOOKS_SET":
+    case "BOOK_SET":
       return {
         ...state,
         values: action.payload,
       };
-    case "BOOKS_RESET":
+    case "BOOK_RESET":
       return initialState;
     default:
       return state;

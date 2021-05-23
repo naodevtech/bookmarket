@@ -11,7 +11,7 @@ const categoryReducer = (state = initialState, action) => {
     case "CATEGORY_FETCH":
       return { ...state, isFetching: true };
     case "CATEGORY_FETCH_SUCCESS":
-      return { ...state, isFetching: false, isSuccess: false };
+      return { ...state, isFetching: false, isSuccess: true };
     case "CATEGORY_FETCH_WRONG":
       return { ...state, isFetching: false, isSuccess: false };
     case "CATEGORY_SET":

@@ -26,10 +26,10 @@ function CategoryList() {
 
   return (
     <div className="container_category_list">
-      <h2>Categories</h2>
+      <h2>Catégories 🎯</h2>
       <div className="box_categories">
         {categories.map((category, index) => {
-          return <Category key={category.id} props={category}></Category>;
+          return <Category key={category.id} categories={category}></Category>;
         })}
       </div>
     </div>

@@ -1,6 +1,6 @@
 @import "../../../sass/mixins";
 
-.box_category {
+.box_book {
   height: 135px;
   width: 135px;
   display: flex;
@@ -13,13 +13,9 @@
   padding: 1em;
   cursor: pointer;
   transition: 0.2s;
-  opacity: 0.7;
   @include media(laptop) {
     height: 165px;
     width: 165px;
-  }
-  h2 {
-    font-size: 5em;
   }
   h4 {
     font-weight: 700;
@@ -30,6 +26,5 @@
   }
   &:hover {
     transform: scale(1.2);
-    opacity: 1;
   }
 }

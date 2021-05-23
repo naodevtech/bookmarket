@@ -1,5 +1,5 @@
 import React from "react";
-import CategoryList from "../organisms/categoryList/categoryList";
+import CategoryList from "../../organisms/categoryList/categoryList";
 
 function Home() {
   return (
