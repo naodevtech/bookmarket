@@ -21,6 +21,7 @@ const Login = () => {
         email: email,
         password: password,
       });
+      console.log(result);
       dispatch({ type: "USER_FETCH_SUCCESS" });
       dispatch({ type: "USER_SET", payload: result.data.data });
       history.push("/");
